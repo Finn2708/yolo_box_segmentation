@@ -1,0 +1,6 @@
+path: /workspace/yolo
+
+train: images/train2017
+val: images/val2017
+
+nc: 1

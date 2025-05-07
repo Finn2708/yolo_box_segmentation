@@ -1,0 +1,36 @@
+project: 'logs/segmentation'
+data: yolo-data.yaml
+
+device: "cuda"
+
+epochs: 300
+imgsz: 640   
+batch: 16    # Can't fit any more in VRAM (8GB)
+
+# Image augmentation
+hsv_h: 0.015      # Image HSV-Hue augmentation (fraction) - Adjusts color hue
+hsv_s: 0.7        # Image HSV-Saturation augmentation (fraction) - Adjusts color saturation
+hsv_v: 0.4        # Image HSV-Value augmentation (fraction) - Adjusts brightness
+degrees: 10.0     # Image rotation (+/- deg) - Rotates images slightly
+translate: 0.1    # Image translation (+/- fraction) - Shifts images horizontally/vertically
+scale: 0.2        # Image scale (+/- gain) - Zooms images in/out
+shear: 2.0        # Image shear (+/- deg) - Tilts images
+perspective: 0.0  # Image perspective (+/- fraction) range 0-0.001 - Applies perspective distortion (often kept low or 0)
+flipud: 0.1       # Image flip up-down (probability) - Flips images vertically with 10% chance
+fliplr: 0.5       # Image flip left-right (probability) - Flips images horizontally with 50% chance (very common)
+mosaic: 1.0       # Mosaic augmentation (probability) - Combines 4 images (set to 0.0 to disable)
+close_mosaic: 10  # Run the last 10 epochs without mosaic
+mixup: 0.0        # Mixup augmentation (probability) - Blends 2 images (set to 0.0 to disable)
+cutmix: 0.1       # 
+copy_paste: 0.2   # Copy-paste augmentation (probability segmentation only) - Copies objects between images (set to 0.0 to disable)
+copy_paste_mode: "flip" # Only copy-paste from the same image to keep context intact
+erasing: 0.0       # These are mainly used for classification. Since we only have one class, we don't need them  
+auto_augment: None # These are mainly used for classification. Since we only have one class, we don't need them
+
+# Additional augmentations are run automatically, because albumentations is installed
+# Blur(p=0.01, blur_limit=(3, 7))
+# MedianBlur(p=0.01, blur_limit=(3, 7))
+# ToGray(p=0.01, method='weighted_average', num_output_channels=3)
+# CLAHE(p=0.01, clip_limit=(1.0, 4.0), tile_grid_size=(8, 8))
+
+save_txt: True
