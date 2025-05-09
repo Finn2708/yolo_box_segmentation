@@ -69,3 +69,10 @@ The model is slightly overfitted. This is evident from the segmentation loss plo
 | net (46).jpg | net (92).jpg | net (27).jpg |
 | :------------------: | :------------------: | :------------------: |
 | <img src="media/validation/net%20(46).jpg" alt="Validation of net (46).jpg" height="300px"> | <img src="media/validation/net%20(92).jpg" alt="Validation of net (92).jpg" height="300px"> | <img src="media/validation/net%20(27).jpg" alt="Validation of net (27).jpg" height="300px"> |
+
+
+## 7. Reproduction
+1. Save the [OSCD dataset](https://github.com/yancie-yjr/scd.github.io) to `/workspace/data/OSCD`.
+2. Make sure you fulfill the requirements.
+3. Run the training process through `training.ipynb`
+4. Run the evaluation process through `evaluation.ipynb`
